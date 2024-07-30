@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block title %}
+Lists
+{% endblock %}
+
+
+
+{% block body %}
+
+<main class="content py-5">
+    <div class="container">
+      <h2 class="text-center">My Daily Needs List</h2>
+      <h3 class="mb-5 mt-2 text-center">Total Items ({{ items.count }})</h3>
+      <div class="table-responsive">
+
+        <table class="table table-success table-striped table-bordered table-hover text-center">
+          <thead class="thead-dark text-center">
+            <tr>
+              <th scope="col">S.No</th>
+              <th scope="col">Item Name</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+
+          {% for item in items %}
+          <tbody>
+            <tr>
+
+              <td> {{ forloop.counter }} </td>
+              <td> {{ item.item_name }} </td>
+              <td> {{ item.quantity }} </td>
+
+              <td class="d-flex justify-content-center">
+                <div class="table-actions">
+                  <a href="{% url 'update_item' item.id %}" class="btn btn-warning">Update</a>
+                  <a href="{% url 'delete_item' item.id %}" class="btn btn-danger">Remove</a>
+                  <a href="{% url 'purchased' item.id %}" class="btn btn-success">Purchased</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          {% endfor %}
+
+        </table>
+
+        <div class="d-flex justify-content-center mt-5">
+            <a href="{% url 'add_item' %}" type="submit" class="btn btn-success btn-lg mb-5">Add a new Item</a>
+        </div>
+
+
+        <!--Purchased-->
+
+        <h3 class="mb-5 mt-5 text-center">Purchased Items ({{ purchased_items.count }})</h3>
+
+        <table class="table table-success table-striped table-bordered table-hover text-center">
+          <thead class="thead-dark text-center">
+            <tr>
+              <th scope="col">S.No</th>
+              <th scope="col">Item Name</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+
+          {% for item in purchased_items %}
+          <tbody>
+            <tr>
+
+              <td> {{ forloop.counter }} </td>
+              <td> {{ item.item_name }} </td>
+              <td> {{ item.quantity }} </td>
+
+              <td class="d-flex justify-content-center">
+                <div class="table-actions">
+                  <a href="{% url 'delete_item' item.id %}" class="btn btn-danger">Delete</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          {% endfor %}
+
+        </table>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+
+
+
+

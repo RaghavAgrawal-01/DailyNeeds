@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block title %}
+DailyNeeds Home
+{% endblock %}
+
+
+
+{% block body %}
+
+<!--Hero Section-->
+
+<main class="content">
+    <section class="hero bg-info text-white text-center py-5">
+        <div class="container">
+        <h1>Organize Your Daily Needs Effortlessly</h1>
+        <p>Make your life easier with our daily needs list app.</p>
+        <a href="{% url 'list' %}" class="btn btn-light btn-lg">Get Started</a>
+        </div>
+    </section>
+
+    <section class="features py-5">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                <i class="fas fa-list-alt fa-3x"></i>
+                <h5 class="card-title">Easy Item Management</h5>
+                <p class="card-text">Add, edit, and delete items with ease.</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                <i class="fas fa-bell fa-3x"></i>
+                <h5 class="card-title">Daily Reminders</h5>
+                <p class="card-text">Get notified about your daily needs.</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                <i class="fas fa-mobile-alt fa-3x"></i>
+                <h5 class="card-title">Accessible Anywhere</h5>
+                <p class="card-text">Access your list from any device.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}
